@@ -1,74 +1,67 @@
-import {Component} from 'react'
-
 import {Link} from 'react-router-dom'
 
 import ThemeContext from '../../context/ThemeContext'
 
 import './index.css'
 
-// Sai Tej's Code
+const Navbar = () => (
+  <ThemeContext.Consumer>
+    {value => {
+      const {isDarkTheme, toggleTheme} = value
 
-class Navbar extends Component {
-  render() {
-    return (
-      <ThemeContext.Consumer>
-        {value => {
-          const {isDarkTheme, toggleTheme} = value
-          console.log(isDarkTheme)
-          const onClickTheme = () => {
-            toggleTheme()
-          }
+      const onToggleTheme = () => {
+        toggleTheme()
+      }
 
-          const logoDarkUrl =
-            'https://assets.ccbp.in/frontend/react-js/website-logo-light-theme-img.png'
-          const logoLightUrl =
-            'https://assets.ccbp.in/frontend/react-js/website-logo-dark-theme-img.png'
+      const themeImageURL = isDarkTheme
+        ? 'https://assets.ccbp.in/frontend/react-js/light-theme-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/dark-theme-img.png'
 
-          const themeIconDarkUrl =
-            'https://assets.ccbp.in/frontend/react-js/dark-theme-img.png'
-          const themeIconLightUrl =
-            'https://assets.ccbp.in/frontend/react-js/light-theme-img.png'
+      const navbarBgClassName = isDarkTheme
+        ? 'navbar-bg-dark'
+        : 'navbar-bg-light'
 
-          const theme = isDarkTheme ? 'dark-theme' : 'light-theme'
-          const logoIcon = isDarkTheme ? logoLightUrl : logoDarkUrl
-          const themeIcon = isDarkTheme ? themeIconLightUrl : themeIconDarkUrl
-          const themeColour = isDarkTheme ? 'light-colour' : 'dark-Colour'
-          const Line = isDarkTheme ? 'h-line' : null
-          // console.log(theme)
+      const websiteLogoImageURL = isDarkTheme
+        ? 'https://assets.ccbp.in/frontend/react-js/website-logo-dark-theme-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/website-logo-light-theme-img.png'
 
-          return (
-            <>
-              <nav className={`nav-con ${theme}`}>
-                <img alt="website logo" className="theme-logo" src={logoIcon} />
-                <ul className="options-con">
-                  <li>
-                    <Link to="/">
-                      <h1 className={themeColour}>Home</h1>
-                    </Link>
-                  </li>
+      const navItemClassName = isDarkTheme
+        ? 'list-text-dark-theme'
+        : 'list-text-light-theme'
 
-                  <li>
-                    <Link to="/about">
-                      <h1 className={themeColour}>About</h1>
-                    </Link>
-                  </li>
-                </ul>
-                <button
-                  data-testid="theme"
-                  type="button"
-                  onClick={onClickTheme}
-                  className="theme-btn"
-                >
-                  <img alt="theme" className="theme-icon" src={themeIcon} />
-                </button>
-              </nav>
-              <hr className={Line} />
-            </>
-          )
-        }}
-      </ThemeContext.Consumer>
-    )
-  }
-}
+      return (
+        <div className={`navbar ${navbarBgClassName}`}>
+          <div className="navbar-content">
+            <img
+              className="website-logo"
+              src={websiteLogoImageURL}
+              alt="website logo"
+            />
+            <ul className="nav-menu">
+              <li className="nav-menu-item">
+                <Link to="/" className={`nav-link ${navItemClassName}`}>
+                  Home
+                </Link>
+              </li>
+              <li className="nav-menu-item">
+                <Link to="/about" className={`nav-link ${navItemClassName}`}>
+                  About
+                </Link>
+              </li>
+            </ul>
+            <button
+              data-testid="theme"
+              className="theme-button"
+              type="button"
+              onClick={onToggleTheme}
+            >
+              <img className="theme-image" src={themeImageURL} alt="theme" />
+            </button>
+          </div>
+        </div>
+      )
+    }}
+  </ThemeContext.Consumer>
+)
 
 export default Navbar

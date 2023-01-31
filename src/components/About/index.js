@@ -1,36 +1,37 @@
-import Navbar from '../Navbar'
-
 import ThemeContext from '../../context/ThemeContext'
+
+import Navbar from '../Navbar'
 
 import './index.css'
 
-// Sai Tej's Code
-
-const Home = () => (
+const About = () => (
   <ThemeContext.Consumer>
     {value => {
       const {isDarkTheme} = value
 
-      const lightAboutIcon =
-        'https://assets.ccbp.in/frontend/react-js/about-dark-img.png'
-      const darkAboutIcon =
-        'https://assets.ccbp.in/frontend/react-js/about-light-img.png'
+      const aboutBgClassName = isDarkTheme ? 'about-bg-dark' : 'about-bg-light'
 
-      const iconUrl = isDarkTheme ? lightAboutIcon : darkAboutIcon
+      const aboutImageURL = isDarkTheme
+        ? 'https://assets.ccbp.in/frontend/react-js/about-dark-img.png'
+        : 'https://assets.ccbp.in/frontend/react-js/about-light-img.png'
 
-      const themeColour = isDarkTheme ? 'darkColour' : 'lightColour'
+      const aboutTextClassName = isDarkTheme
+        ? 'about-text-light'
+        : 'about-text-dark'
 
       return (
-        <>
+        <div className={`about-app-container ${aboutBgClassName}`}>
           <Navbar />
-          <div className={`about-con ${themeColour}`}>
-            <img className="home-img" alt="about" src={iconUrl} />
-            <h1>About</h1>
+          <div className="about-page-container">
+            <div className="about-container">
+              <img className="about-image" src={aboutImageURL} alt="about" />
+              <h1 className={`about-heading ${aboutTextClassName}`}>About</h1>
+            </div>
           </div>
-        </>
+        </div>
       )
     }}
   </ThemeContext.Consumer>
 )
 
-export default Home
+export default About

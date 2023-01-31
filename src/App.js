@@ -1,21 +1,17 @@
 import {Switch, Route} from 'react-router-dom'
-
 import {Component} from 'react'
 
 import ThemeContext from './context/ThemeContext'
-
 import Home from './components/Home'
-
 import About from './components/About'
-
 import NotFound from './components/NotFound'
 
 import './App.css'
 
-// Sai Tej's Code
-
 class App extends Component {
-  state = {isDarkTheme: false}
+  state = {
+    isDarkTheme: false,
+  }
 
   toggleTheme = () => {
     this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
@@ -23,11 +19,13 @@ class App extends Component {
 
   render() {
     const {isDarkTheme} = this.state
-    // console.log(isDarkTheme)
 
     return (
       <ThemeContext.Provider
-        value={{isDarkTheme, toggleTheme: this.toggleTheme}}
+        value={{
+          isDarkTheme,
+          toggleTheme: this.toggleTheme,
+        }}
       >
         <Switch>
           <Route exact path="/" component={Home} />

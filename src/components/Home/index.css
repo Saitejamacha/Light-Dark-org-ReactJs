@@ -1,21 +1,51 @@
-.home-con {
-  width: 100vw;
-  height: 100vh;
+.home-app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home-bg-dark {
+  background-color: #000000;
+}
+
+.home-bg-light {
+  background-color: #ffffff;
+}
+
+.home-responsive-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-grow: 1;
 }
 
-.darkColour {
-  background-color: black;
-  color: white;
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-.lightColour {
-  background-color: white;
-  color: black;
+
+.home-image {
+  height: 124px;
 }
-.home-img {
-  width: 150px;
-  height: 150px;
+
+.home-heading {
+  font-family: 'Roboto';
+  font-size: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .home-heading {
+    font-size: 48px;
+  }
+}
+
+.home-text-light {
+  color: #ffffff;
+}
+
+.home-text-dark {
+  color: #1e293b;
 }
