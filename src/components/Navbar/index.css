@@ -1,0 +1,73 @@
+.nav-con {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dark-theme {
+  background-color: #333333;
+  color: black;
+}
+
+.light-theme {
+  background-color: white;
+  color: white;
+}
+
+.options-con {
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1068px) {
+  .options-con {
+    width: 50vw;
+    display: flex;
+    justify-content: space-evenly;
+    /* background-color: yellow; */
+  }
+}
+
+@media (max-width: 768px) {
+  .options-con {
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: red; */
+    padding-left: 10px;
+  }
+}
+
+.dark-Colour {
+  color: black;
+}
+.light-colour {
+  color: white;
+}
+.theme-btn {
+  background-color: transparent;
+  border: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.theme-logo {
+  width: 50px;
+  height: 50px;
+}
+
+.h-line {
+  display: none;
+}
+
+li {
+  list-style-type: none;
+}

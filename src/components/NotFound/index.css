@@ -1,0 +1,23 @@
+.notFound-con {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img-size {
+  width: 30vw;
+  height: 60vh;
+}
+
+.darkColour {
+  background-color: black;
+  color: white;
+}
+
+.lightColour {
+  background-color: white;
+  color: black;
+}
